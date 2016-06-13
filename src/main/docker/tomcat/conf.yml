@@ -1,0 +1,9 @@
+# additional data require to create the Docker image
+packaging:
+  # files to add to the build, usually used with ADD in the Dockerfile
+  add:
+    - /target/hellodocker.jar
+
+# tag to use for images
+tags:
+  - docker.io/aschaefer/hellodocker:${project.version}

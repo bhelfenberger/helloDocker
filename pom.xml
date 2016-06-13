@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.namics.samples.docker</groupId>
 	<artifactId>hellodocker</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
-<!--test-->
+	<!--test-->
 	<name>helloDocker</name>
 	<description>Demo project for Spring Boot with Docker</description>
 
@@ -21,6 +21,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<docker.maven.plugin.version>2.11.13</docker.maven.plugin.version>
+		<docker.registry.username>see@settings.xml</docker.registry.username>
+		<docker.registry.password>see@settings.xml</docker.registry.password>
+		<docker.registry.email>see@settings.xml</docker.registry.email>
 	</properties>
 
 	<dependencies>
@@ -44,7 +48,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -56,15 +66,69 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
+		<finalName>helloDocker</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>com.alexecollins.docker</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>${docker.maven.plugin.version}</version>
+				<configuration>
+					<!-- your installed version - version REST API! -->
+					<version>1.23</version>
+					<!-- used for push -->
+					<!--<username>${docker.registry.username}</username>-->
+					<!--<password>${docker.registry.password}</password>-->
+					<username>${docker.registry.username}</username>
+					<password>${docker.registry.password}</password>
+					<email>${docker.registry.email}</email>
+					<!-- if you want to push to a private repo -->
+					<!--<serverAddress>https://index.docker.io/v1/</serverAddress>-->
+					<!-- change here if you are using another port/host, e.g. 4243 -->
+					<!--<host>http://192.168.59.103:2375</host>-->
+					<host>https://192.168.99.100:2376</host>
+					<!--<host>http://localhost:2375</host>-->
+					<!-- if you need to run over SSL, change this -->
+					<!--<dockerCertPath>/Users/aschaefer/.docker/machine/machines/default</dockerCertPath>-->
+					<!-- remove images created by Dockerfile -->
+					<removeIntermediateImages>true</removeIntermediateImages>
+					<!-- do/do not cache images (default true), disable to get the freshest images -->
+					<cache>true</cache>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<!-- set-up port forwarding if you're using boot2docker -->
+						<groupId>com.alexecollins.docker</groupId>
+						<artifactId>docker-java-orchestration-plugin-boot2docker</artifactId>
+						<version>${docker.maven.plugin.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>dockerPackageDeploy</id>
+						<goals>
+							<goal>package</goal>
+							<!--<goal>deploy</goal>-->
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>external.atlassian.jgitflow</groupId>
+				<artifactId>jgitflow-maven-plugin</artifactId>
+				<version>1.0-m5.1</version>
+			</plugin>
+
 		</plugins>
 	</build>
-	
+
 
 </project>
