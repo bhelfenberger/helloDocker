@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.namics.samples.docker</groupId>
 	<artifactId>hellodocker</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 	<!--test-->
 	<name>helloDocker</name>
@@ -15,7 +14,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.3.5.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -26,6 +25,12 @@
 		<docker.registry.password>see@settings.xml</docker.registry.password>
 		<docker.registry.email>see@settings.xml</docker.registry.email>
 	</properties>
+
+	<scm>
+		<url>https://github.com:bhelfenberger/helloDocker/</url>
+		<connection>scm:git:git@github.com:bhelfenberger/helloDocker.git</connection>
+		<developerConnection>scm:git:git@github.com:bhelfenberger/helloDocker.git</developerConnection>
+	</scm>
 
 
 	<distributionManagement>
