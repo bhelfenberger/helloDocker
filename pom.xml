@@ -27,6 +27,12 @@
 		<docker.registry.email>see@settings.xml</docker.registry.email>
 	</properties>
 
+	<scm>
+		<url>https://github.com:bhelfenberger/helloDocker/</url>
+		<connection>scm:git:git@github.com:bhelfenberger/helloDocker.git</connection>
+		<developerConnection>scm:git:git@github.com:bhelfenberger/helloDocker.git</developerConnection>
+	</scm>
+
 
 	<distributionManagement>
 		<repository>
