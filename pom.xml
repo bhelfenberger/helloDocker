@@ -27,6 +27,22 @@
 		<docker.registry.email>see@settings.xml</docker.registry.email>
 	</properties>
 
+
+	<distributionManagement>
+		<repository>
+			<id>nexus.namics.com</id>
+			<url>http://nexus.namics.com/content/repositories/namics-projects</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot.namics.nexus.namics.com</id>
+			<url>http://nexus.namics.com/content/repositories/namics-projects-snapshot</url>
+		</snapshotRepository>
+		<site>
+			<id>nexus.namics.com</id>
+			<url>dav:http://nexus.namics.com/content/sites/namics-projects-sites/${project.groupId}/metrohm-epuls/${project.version}</url>
+		</site>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
