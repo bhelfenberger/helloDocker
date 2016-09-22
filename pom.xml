@@ -17,7 +17,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-		<docker.maven.plugin.version>2.11.13</docker.maven.plugin.version>
+		<docker.maven.plugin.version>2.11.17</docker.maven.plugin.version>
 
 		<docker.registry.username>see@settings.xml</docker.registry.username>
 		<docker.registry.password>see@settings.xml</docker.registry.password>
