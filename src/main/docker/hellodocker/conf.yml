@@ -6,4 +6,4 @@ packaging:
 
 # tag to use for images
 tags:
-  - docker.io/aschaefer/hellodocker:${project.version}
+  - docker.io/dezoito18/hellodocker:${project.version}

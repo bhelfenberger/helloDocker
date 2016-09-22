@@ -7,6 +7,8 @@ package com.namics.samples.docker;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 /**
  * HelloDockerController.
  *
@@ -15,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloDockerController {
-	@RequestMapping
-	public String hello() {
-		return "Hello Docker";
-	}
+    @RequestMapping
+    public String hello() {
+        return "Hello Docker (" + new Date() + ")";
+    }
 }

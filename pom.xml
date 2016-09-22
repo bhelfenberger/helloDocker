@@ -4,7 +4,7 @@
 
 	<groupId>com.namics.samples.docker</groupId>
 	<artifactId>hellodocker</artifactId>
-	<version>0.0.5</version>
+	<version>0.0.6</version>
 	<packaging>jar</packaging>
 
 	<parent>
@@ -115,6 +115,11 @@
 						<groupId>com.alexecollins.docker</groupId>
 						<artifactId>docker-java-orchestration-plugin-boot2docker</artifactId>
 						<version>${docker.maven.plugin.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>de.gesellix</groupId>
+						<artifactId>unix-socket-factory</artifactId>
+						<version>2016-04-06T22-21-19</version>
 					</dependency>
 				</dependencies>
 				<executions>
