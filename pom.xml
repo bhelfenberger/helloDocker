@@ -116,6 +116,11 @@
 						<artifactId>docker-java-orchestration-plugin-boot2docker</artifactId>
 						<version>${docker.maven.plugin.version}</version>
 					</dependency>
+					<dependency>
+						<groupId>de.gesellix</groupId>
+						<artifactId>unix-socket-factory</artifactId>
+						<version>2016-04-06T22-21-19</version>
+					</dependency>
 				</dependencies>
 				<executions>
 					<execution>
